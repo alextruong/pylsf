@@ -383,6 +383,7 @@ cdef extern from "lsf/lsbatch.h":
       time_t    rsvInActive
       int       numLicense
       char      **licenseNames
+      int       runTime
 
     cdef struct jobAttrSetLog:
       int       jobId
@@ -2391,6 +2392,7 @@ def lsb_readjobinfo(num_of_records):
                       42 - Licenses
                       43 - rusage
                       44 - rlimits
+                      45 - runTime
    """
 
    cdef jobInfoEnt *jobinfoent
@@ -2541,7 +2543,8 @@ def lsb_readjobinfo(num_of_records):
               jobinfoent.rsvInActive,
               Licenses,
               rUsage,
-              rlimitsList ]
+              rlimitsList
+              jobinfoent.runTime ]
 
    return retval
 
