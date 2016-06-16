@@ -2543,7 +2543,7 @@ def lsb_readjobinfo(num_of_records):
               jobinfoent.rsvInActive,
               Licenses,
               rUsage,
-              rlimitsList
+              rlimitsList,
               jobinfoent.runTime ]
 
    return retval
